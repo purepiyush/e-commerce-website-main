@@ -76,8 +76,8 @@ const Payment = () => {
           </div>
           <div className="payment-address">
             <p>{user && user.email}</p>
-            <p>House no. 230 Near Botnical Garden</p>
-            <p>Lucknow, India</p>
+            <p>House no. 230 Near KankarBagh </p>
+            <p>Patna, India</p>
           </div>
         </div>
         <div className="payment-section">

@@ -14,6 +14,10 @@ const Header = () => {
   let state = useSelector(state => (state));
   localStorage.setItem('amazon',JSON.stringify(state));
   const { user, basket } = state;
+  
+  let userName;
+  if(user)
+    userName = user.email.split('@');
 
   //for animation effect on total section
   useEffect(()=>{
@@ -64,7 +68,7 @@ const Header = () => {
         <Link to={`${user ? "/" : "/login"}`} className="header-link">
           <div onClick={handleAuth} className="header-option">
             <span className="header-option1">
-              Hello, {user ? user.email : "Guest"}{" "}
+              Hello, {user ? userName[0].toUpperCase() : "Guest"}{" "}
             </span>
             <span className="header-option2">
               {user ? "Sign Out" : "Sign In"}
