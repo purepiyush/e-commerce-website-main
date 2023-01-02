@@ -25,7 +25,8 @@ const CheckoutProduct = ({ item, hideButton }) => {
               <p key={index}>⭐</p>
             ))}
         </div>
-        <span onClick={() => dispatch(addToBasket(item))} className="button-action">
+        {!hideButton && <div>
+          <span onClick={() => dispatch(addToBasket(item))} className="button-action">
           <i>
             <AddCircleOutlineIcon className="hoverItem"/>
           </i>
@@ -38,6 +39,8 @@ const CheckoutProduct = ({ item, hideButton }) => {
             <RemoveCircleOutlineIcon className="hoverItem"/>
           </i>
         </span>
+        </div>}
+        
       </div>
     </div>
   );
