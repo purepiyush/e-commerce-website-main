@@ -5,16 +5,18 @@ import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 // import CurrencyFormat from "react-currency-format";
 
 const Order = ({ order }) => {
+  console.log(order.basket);
   return (
     <div className="order">
       <h2>Order</h2>
-      <p>{moment.unix(order.data.created).format("MMMM DD YYYY, h:mma")}</p>
+      {/* <p>{moment.unix(order.data.created).format("MMMM DD YYYY, h:mma")}</p> */}
       <p className="order-id">
         <small>{order.id}</small>
       </p>
-      {order.data.basket?.map((item) => (
+      {order.basket?.map((item) => (
         <CheckoutProduct
           key={item.id}
+          item={item}
           id={item.id}
           title={item.title}
           image={item.image}
@@ -24,7 +26,7 @@ const Order = ({ order }) => {
         />
       ))}
       
-      <h3 className="order-total">Order Total: {500}</h3>
+      <h3 className="order-total">Order Total: {order.amount}</h3>
      
     </div>
   );
